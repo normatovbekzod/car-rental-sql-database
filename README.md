@@ -53,16 +53,46 @@ The resulting database can be represented in the following data schema diagram g
 ## SQL queries
 A few sample queries that the company employees can now run to answer interesting questions
 
-Query 1 Show a number of total reserved vehicles at the moment and their average daily hire rate.
+Query 1. Show a number of total reserved vehicles at the moment and their average daily hire rate
 ```sql
 SELECT COUNT(*) AS ReservedCount, AVG(daily_hire_rate) AS AverageHireRate
 FROM smile.vehicle
 WHERE status = 'Reserved';
 ```
 
-Query 2 Show a number of distinct vehicles found faulty in March 2017.
+Query 2. Show a number of distinct vehicles found faulty in March 2017
 ```sql
 SELECT COUNT(DISTINCT vehicle_registration_number) 
 FROM smile.fault_report
 WHERE isFaulty = 'Yes' AND date_checked BETWEEN '2017-03-01' AND '2017-03-31';
+```
+
+Query 3. Show mileage amount and the status of the vehicle with the vehicle registration number YOJB7P
+```sql
+SELECT mileage, status
+FROM smile.mileage 
+JOIN smile.vehicle ON vehicle.vehicle_registration_number = smile.mileage.vehicle_registration_number
+WHERE vehicle.vehicle_registration_number = 'YOJB7P';
+```
+
+Query 4. Show all available vehicles that meet particular client requirements, i.e., vehicle type is a car, make is Toyota, daily hire rate is between 400 and 500, and the capacity is at least 3 people. Order the results by daily hire rate in descending order 
+```sql
+SELECT vehicle_registration_number,  daily_hire_rate, outlet_number
+FROM smile.vehicle 
+WHERE capacity >= 3 
+	AND make = 'Toyota' 
+	AND daily_hire_rate BETWEEN 400 AND 500 
+	AND type = 'Car' 
+	AND status = 'Available'
+ORDER BY daily_hire_rate DESC;
+```
+
+Query 5. Show all cars which have daily hire rate less than daily hire rates of all cars with capacity equal to 2 and reserved count >= 2
+```sql
+SELECT vehicle_registration_number, reserved_count, status, daily_hire_rate, capacity
+FROM smile.vehicle 
+WHERE type = 'car' AND daily_hire_rate < ALL (SELECT daily_hire_rate 
+												FROM smile.vehicle 
+												WHERE reserved_count >=2 AND type = 'car' AND capacity = 2) 
+ORDER BY daily_hire_rate DESC;
 ```
