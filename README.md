@@ -97,8 +97,16 @@ WHERE type = 'car' AND daily_hire_rate < ALL (SELECT daily_hire_rate
 ORDER BY daily_hire_rate DESC;
 ```
 
+## Documents
+Here are all the necessary files used to create, insert into, query, and modify the database:
+* [CREAT DATABASE file](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/sql/Database.sql): The foundational .sql file used to create database, relations and set any necessary requirements.
+* [INSERT file](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/sql/INSERT.sql): SQL code to insert new entries as tuples into the relations of the database.
+* [SELECT file](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/sql/SELECT_queries.sql): SQL commands to query the database and answer questions about the data as well as collect data based on specific criteria.
+* [UPDATE file](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/sql/UPDATE_INSERTINTO_DELETE.sql): Data modifications commands.
+* [VIEWS file](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/sql/VIEWS.sql): SQL commands to create various views, e.g., managerial view or staff view.
+
 ## Requirements
-* [MySQL](https://dev.mysql.com/downloads/installer/)(you can follow a detailed guide [here](https://youtu.be/7S_tz1z_5bA?si=txSyC8XZYmUTvufX))
+* [MySQL](https://dev.mysql.com/downloads/installer/) (you can follow a detailed guide [here](https://youtu.be/7S_tz1z_5bA?si=txSyC8XZYmUTvufX))
 
 ## License
 MIT. See the LICENSE file for the copyright notice.
