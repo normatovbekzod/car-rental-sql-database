@@ -87,7 +87,7 @@ WHERE capacity >= 3
 ORDER BY daily_hire_rate DESC;
 ```
 
-Query 5. Show all cars which have daily hire rate less than daily hire rates of all cars with capacity equal to 2 and reserved count >= 2
+Query 5. Show all cars which have a daily hire rate less than the daily hire rates of all cars with a capacity equal to 2 and reserved count >= 2
 ```sql
 SELECT vehicle_registration_number, reserved_count, status, daily_hire_rate, capacity
 FROM smile.vehicle 
@@ -96,3 +96,9 @@ WHERE type = 'car' AND daily_hire_rate < ALL (SELECT daily_hire_rate
 						WHERE reserved_count >=2 AND type = 'car' AND capacity = 2) 
 ORDER BY daily_hire_rate DESC;
 ```
+
+## Requirements
+* [MySQL](https://dev.mysql.com/downloads/installer/)(you can follow a detailed guide [here](https://youtu.be/7S_tz1z_5bA?si=txSyC8XZYmUTvufX))
+
+## License
+MIT. See the LICENSE file for the copyright notice.
