@@ -50,3 +50,7 @@ The resulting database can be represented in the following data schema diagram g
 
 
 ![alt text](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/images/EER_1.png)
+and then
+<p align="center">
+  <imgsrc="images/EER_1.PNG">
+</p>
