@@ -45,3 +45,10 @@ CREATE TABLE `outlet` (
   PRIMARY KEY (`outlet_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
+
+The resulting database can be represented in the following data schema diagram generated via MySQL Workbench Enhanced Entity Diagram.
+<p align="center">
+  <imgsrc="images/EER_1.PNG">
+</p>
+
+![alt text](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/images/EER_1.png)
