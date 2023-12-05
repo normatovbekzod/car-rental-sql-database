@@ -92,7 +92,7 @@ Query 5. Show all cars which have daily hire rate less than daily hire rates of 
 SELECT vehicle_registration_number, reserved_count, status, daily_hire_rate, capacity
 FROM smile.vehicle 
 WHERE type = 'car' AND daily_hire_rate < ALL (SELECT daily_hire_rate 
-												FROM smile.vehicle 
-												WHERE reserved_count >=2 AND type = 'car' AND capacity = 2) 
+						FROM smile.vehicle 
+						WHERE reserved_count >=2 AND type = 'car' AND capacity = 2) 
 ORDER BY daily_hire_rate DESC;
 ```
