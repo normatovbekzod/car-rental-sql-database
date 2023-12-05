@@ -33,3 +33,15 @@ Each business client has a unique business registration number. The data stored 
 ### Personal Clients
 Each personal client is assigned a unique personal registration number within a company. The data stored for each client includes the client number, date of birth, and the client's driving license number.
 
+Then we create a database by using a sequence of CREATE TABLE statements. Below is an example of such a statement for the outlet table.
+```sql
+-- Table structure for table `outlet`
+DROP TABLE IF EXISTS `outlet`;
+CREATE TABLE `outlet` (
+  `outlet_number` int NOT NULL,
+  `address` varchar(60) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `fax_number` int DEFAULT NULL,
+  PRIMARY KEY (`outlet_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
