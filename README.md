@@ -48,11 +48,21 @@ CREATE TABLE `outlet` (
 
 The resulting database can be represented in the following data schema diagram generated via MySQL Workbench Enhanced Entity Diagram function.
 
-
 ![alt text](https://github.com/normatovbekzod/car-rental-sql-database/blob/main/images/EER_1.png)
 
+## SQL queries
+A few sample queries that the company employees can now run to answer interesting questions
 
-and then
-<p align="center">
-  <img src="images/EER_1.png">
-</p>
+Query 1 Show a number of total reserved vehicles at the moment and their average daily hire rate.
+```sql
+SELECT COUNT(*) AS ReservedCount, AVG(daily_hire_rate) AS AverageHireRate
+FROM smile.vehicle
+WHERE status = 'Reserved';
+```
+
+Query 2 Show a number of distinct vehicles found faulty in March 2017.
+```sql
+SELECT COUNT(DISTINCT vehicle_registration_number) 
+FROM smile.fault_report
+WHERE isFaulty = 'Yes' AND date_checked BETWEEN '2017-03-01' AND '2017-03-31';
+```
